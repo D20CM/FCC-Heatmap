@@ -1,0 +1,28 @@
+*{
+    text-align: center;
+   
+
+}
+
+h1, h2{
+   font-family: 'Courier New', Courier, monospace; 
+}
+
+#x-label, #y-label{
+    font-family: 'Courier New', Courier, monospace; 
+}
+
+#tooltip{
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace; 
+}
+
+#legend{
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace; 
+}
+
+.legend-box{
+    border-radius: 10%;
+    color: rgb(236, 11, 11);
+}
