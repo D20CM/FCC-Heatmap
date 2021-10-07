@@ -52,6 +52,7 @@ let heatmap = function(){
                 .attr("height", h + 100)
                 .attr("class","svg")
                 .attr("fill", "blue")
+                .attr("id", "graph")
 
     const monthsArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     
@@ -122,11 +123,12 @@ let heatmap = function(){
             let year = d.year;
             let month = monthsArray[d.month-1];
             let temp = parseFloat(d.variance + baseTemp).toFixed(2);
-
+            
             tooltip.text(month + " " + year + ": " + temp + "\xB0C")
             return tooltip
                     .style("visibility", "visible")
                     .attr("data-year", year)
+                    
         })
 
         .on("mousemove", function(event, d){
@@ -150,32 +152,32 @@ let heatmap = function(){
     // let legendColorsArr = ['rgb(69, 117, 180)',' rgb(116, 173, 209)', 'rgb(171, 217, 233)', 'rgb(224, 243, 248)', 'rgb(255,255,191)', 'rgb(254, 224, 144)', 'rgb(253, 174, 97)', 'rgb(244, 109, 67)', 'rgb(215, 48, 39)', 'rgb(165, 0, 38)']
 
 
-    let legendArr = [ {temp: 3.9, color: 'rgb(69, 117, 180)'}, {temp: 5.0, color: ' rgb(116, 173, 209)'}, {temp: 6.1, color: 'rgb(171, 217, 233)'}, {temp: 7.2, color: 'rgb(224, 243, 248)'}, {temp: 8.3, color:'rgb(255,255,191)'}, {temp: 9.5, color: 'rgb(254, 224, 144)'}, {temp: 10.6, color: 'rgb(253, 174, 97)'}, {temp: 11.7, color: 'rgb(244, 109, 67)'}, {temp: 12.8, color: 'rgb(215, 48, 39)'}]
-    let legendColorsArr = ['rgb(69, 117, 180)',' rgb(116, 173, 209)', 'rgb(171, 217, 233)', 'rgb(224, 243, 248)', 'rgb(255,255,191)', 'rgb(254, 224, 144)', 'rgb(253, 174, 97)', 'rgb(244, 109, 67)', 'rgb(215, 48, 39)', 'rgb(165, 0, 38)']
+    // let legendArr = [ {temp: 3.9, color: 'rgb(69, 117, 180)'}, {temp: 5.0, color: ' rgb(116, 173, 209)'}, {temp: 6.1, color: 'rgb(171, 217, 233)'}, {temp: 7.2, color: 'rgb(224, 243, 248)'}, {temp: 8.3, color:'rgb(255,255,191)'}, {temp: 9.5, color: 'rgb(254, 224, 144)'}, {temp: 10.6, color: 'rgb(253, 174, 97)'}, {temp: 11.7, color: 'rgb(244, 109, 67)'}, {temp: 12.8, color: 'rgb(215, 48, 39)'}]
+    // let legendColorsArr = ['rgb(69, 117, 180)',' rgb(116, 173, 209)', 'rgb(171, 217, 233)', 'rgb(224, 243, 248)', 'rgb(255,255,191)', 'rgb(254, 224, 144)', 'rgb(253, 174, 97)', 'rgb(244, 109, 67)', 'rgb(215, 48, 39)', 'rgb(165, 0, 38)']
 
 
-    svg.append("rect")
-      .attr("id", "legend")
-      .attr("x", xScale(1760))
-      .attr("y", h)
-      .attr("width", 400)
-      .attr("height", 200)
-      .attr("fill", "red")
-      // .append("g")
-      .selectAll("rect")
-      .data(legendArr)
-      .enter()
-      .append("rect")
-      .attr("class","legend-box")
-      .attr("x", (d,i) => xScale(1760) + 400/legendArr.length * i)
-      // .attr("x", 20)
-      .attr("y", h)
-      .attr("z-index", (d,i) => 2000+i)
-      .attr("height", 100)
-      .attr("width", 100)
-      .attr("fill", (d,i) => d.color)
-      .append("text")
-      .text((d,i) => d.temp)
+    // svg.append("rect")
+    //   .attr("id", "legend")
+    //   .attr("x", xScale(1760))
+    //   .attr("y", h)
+    //   .attr("width", 400)
+    //   .attr("height", 200)
+    //   .attr("fill", "red")
+    //   // .append("g")
+    //   .selectAll("rect")
+    //   .data(legendArr)
+    //   .enter()
+    //   .append("rect")
+    //   .attr("class","legend-box")
+    //   .attr("x", (d,i) => xScale(1760) + 400/legendArr.length * i)
+    //   // .attr("x", 20)
+    //   .attr("y", h)
+    //   .attr("z-index", (d,i) => 2000+i)
+    //   .attr("height", 100)
+    //   .attr("width", 100)
+    //   .attr("fill", (d,i) => d.color)
+    //   .append("text")
+    //   .text((d,i) => d.temp)
 
 
 
