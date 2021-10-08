@@ -15,15 +15,8 @@ let heatmap = function(){
 
  
     let dataset = data.monthlyVariance;
-    console.log(dataset[2].year);
-
     let yearsArray = dataset.map(item => item.year)
-    console.log(yearsArray);
-
     let varianceArr = dataset.map(item => item.variance)
-    console.log(varianceArr);
-
-   
 
     const xScale = d3.scaleLinear()
                     .domain([d3.min(yearsArray), d3.max(yearsArray)])
@@ -37,8 +30,8 @@ let heatmap = function(){
    
     
     const thresholdScale = d3.scaleThreshold()
-    .domain([ 3.9, 5.0, 6.1, 7.2, 8.3, 9.5, 10.6, 11.7, 12.8])   
-    .range(['rgb(69, 117, 180)',' rgb(116, 173, 209)', 'rgb(171, 217, 233)', 'rgb(224, 243, 248)', 'rgb(255,255,191)', 'rgb(254, 224, 144)', 'rgb(253, 174, 97)', 'rgb(244, 109, 67)', 'rgb(215, 48, 39)', 'rgb(165, 0, 38)']);
+                            .domain([ 3.9, 5.0, 6.1, 7.2, 8.3, 9.5, 10.6, 11.7, 12.8])   
+                           .range(['rgb(69, 117, 180)',' rgb(116, 173, 209)', 'rgb(171, 217, 233)', 'rgb(224, 243, 248)', 'rgb(255,255,191)', 'rgb(254, 224, 144)', 'rgb(253, 174, 97)', 'rgb(244, 109, 67)', 'rgb(215, 48, 39)', 'rgb(165, 0, 38)']);
 
     const svg = d3.select("#appContainer")
                 .append("svg")
@@ -54,26 +47,26 @@ let heatmap = function(){
     const yAxis = d3.axisLeft(yScale).ticks(12).tickFormat((d,i) => monthsArray[i])
 
     svg.append("g")
-    .attr("id", "x-axis")
-    .attr("transform", "translate(0, " + (h - padding ) + ")")
-    .call(xAxis);
+        .attr("id", "x-axis")
+        .attr("transform", "translate(0, " + (h - padding ) + ")")
+        .call(xAxis);
 
     svg.append("g")
-    .attr("id", "y-axis")
-    .attr("transform", "translate(" + padding + ",0)")
-    .call(yAxis)
+        .attr("id", "y-axis")
+        .attr("transform", "translate(" + padding + ",0)")
+        .call(yAxis)
     
     svg.append("g")
-      .attr("id", "x-label")
-      .attr("transform", "translate("+ (w/2) +", " + (h - padding/2) + ")")
-      .append("text")
-      .text("Years")
+        .attr("id", "x-label")
+        .attr("transform", "translate("+ (w/2) +", " + (h - padding/2) + ")")
+        .append("text")
+        .text("Years")
 
     svg.append("g")
-      .attr("id", "y-label")
-      .attr("transform", "translate(" + 20 + ","+ (h/2) + ") rotate(-90)")
-      .append("text")
-      .text("Months")
+        .attr("id", "y-label")
+        .attr("transform", "translate(" + 20 + ","+ (h/2) + ") rotate(-90)")
+        .append("text")
+        .text("Months")
 
 
 
